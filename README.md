@@ -159,6 +159,9 @@ services:
 
 ---
 **Решение**
-1. Docker Compose автоматически выбрал compose.yaml, хотя у вас также есть docker-compose.yaml, так как оба файла являются допустимыми конфигурационными файлами, но порядок их проверки зависит от внутренней логики Docker Compose. В этом случае он выбрал compose.yaml.
+1. Docker Compose автоматически выбрал compose.yaml, хотя у вас также есть docker-compose.yaml, так как оба файла являются допустимыми конфигурационными файлами, но порядок их проверки зависит от внутренней логики Docker Compose, показанной в [статье](https://docs.docker.com/compose/compose-application-model/#the-compose-file). В этом случае он выбрал compose.yaml.
    * <img src="images/Task_5_1.png" alt="Task_5_1.png" width="700" height="auto">
+2. Для включения docker-compose.yaml в проект я воспользовался опцией:
+```include:  - docker-compose.yaml```
+   * <img src="images/Task_5_2.png" alt="Task_5_2.png" width="700" height="auto">
    
