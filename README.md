@@ -25,6 +25,7 @@ Hey, Netology
 
 [Ссылка](https://hub.docker.com/repository/docker/sergemmikh/custom-nginx/general) на репозиторий.
 
+-----
 
 ## Задача 2
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
@@ -36,7 +37,17 @@ Hey, Netology
 4. Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+---
 
+**Решение**
+1. Для запуска контейнера с заданными характеристиками использовал команду ```docker run -d --name SMMikh-custom-nginx-t2 -p 127.0.0.1:8080:80 sergemmikh/custom-nginx:1.0.0```
+   * <img src="images/Task_1_1.png" alt="Task_2_1.png" width="700" height="auto">
+2. Переименовал контейнер: ```docker rename SMMikh-custom-nginx-t2 custom-nginx-t2```
+   * <img src="images/Task_2_2.png" alt="Task_2_2.png" width="700" height="auto">
+3. Dsdjl команды ```date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; ss -tlpn | grep 127.0.0.1:8080  ; docker logs custom-nginx-t2 -n1 ; docker exec -it custom-nginx-t2 base64 /usr/share/nginx/html/index.html```
+   * <img src="images/Task_2_3.png" alt="Task_2_3.png" width="700" height="auto">
+4. Проверка доступнсти страницы: ```curl http://127.0.0.1:8080```
+   * <img src="images/Task_2_4.png" alt="Task_2_4.png" width="700" height="auto">
 
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
