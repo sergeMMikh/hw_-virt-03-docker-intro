@@ -48,7 +48,7 @@ Hey, Netology
    * <img src="images/Task_2_3.png" alt="Task_2_3.png" width="700" height="auto">
 4. Проверка доступнсти страницы: ```curl http://127.0.0.1:8080```
    * <img src="images/Task_2_4.png" alt="Task_2_4.png" width="700" height="auto">
-
+-----
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
 2. Подключитесь к контейнеру и нажмите комбинацию Ctrl-C.
@@ -80,7 +80,7 @@ Hey, Netology
    * <img src="images/Task_3_6.png" alt="Task_3_6.png" width="500" height="auto">
 6. Для удаления контейнера без его остановки можно воспользовтаься флагом -f: ```docker rm -f custom-nginx-t2```
    * <img src="images/Task_3_7.png" alt="Task_3_7.png" width="500" height="auto">
-
+-----
 
 ## Задача 4
 
@@ -90,10 +90,23 @@ Hey, Netology
 - Подключитесь к первому контейнеру с помощью ```docker exec``` и создайте текстовый файл любого содержания в ```/data```.
 - Добавьте ещё один файл в текущий каталог ```$(pwd)``` на хостовой машине.
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
+---
 
+**Решение**
+1. Контейнер из образа ***centos*** c любым тегом в фоновом режиме, подключив папку  текущий рабочий каталог ```$(pwd)``` на хостовой машине в ```/data``` контейнера
+   ```docker run -d --name centos-container -v "$(pwd):/data" centos:latest tail -f /dev/null```
+   * <img src="images/Task_4_1.png" alt="Task_4_1.png" width="700" height="auto">
+2. Контейнер из образа ***debian*** в фоновом режиме, подключив текущий рабочий каталог ```$(pwd)``` в ```/data``` контейнера
+   ```docker run -d --name debian-container -v "$(pwd):/data" debian:latest tail -f /dev/null```
+   * <img src="images/Task_4_2.png" alt="Task_4_2.png" width="700" height="auto">
+3. Подключился к первому контейнеру с помощью ```docker exec``` и создайте текстовый файл любого содержания в ```/data```:
+   ```docker exec -it centos-container bash -c "echo 'Hello from CentOS' > /data/centos-file.txt"```
+4. Добавbk файл в текущий каталог ```$(pwd)``` на хостовой машине ```echo 'Hello from Host' > $(pwd)/host-file.txt```
+5. Листинг и содержание файлов в ```/data``` Второго контейнера.
+   ```docker exec -it debian-container bash -c "ls -l /data && cat /data/centos-file.txt && cat /data/host-file.txt"```
+   * <img src="images/Task_4_3.png" alt="Task_4_3.png" width="700" height="auto">
 
-В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
-
+-----
 
 ## Задача 5
 
@@ -145,3 +158,7 @@ services:
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
 
 ---
+**Решение**
+1. Docker Compose автоматически выбрал compose.yaml, хотя у вас также есть docker-compose.yaml, так как оба файла являются допустимыми конфигурационными файлами, но порядок их проверки зависит от внутренней логики Docker Compose. В этом случае он выбрал compose.yaml.
+   * <img src="images/Task_5_1.png" alt="Task_5_1.png" width="700" height="auto">
+   
