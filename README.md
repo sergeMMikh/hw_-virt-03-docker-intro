@@ -68,10 +68,10 @@ Hey, Netology
 **Решение**
 1. Для подключения к стандартному потоку ввода-вывода требется выполнить команду ```docker attach```
 При нажатии комбинации Ctrl-C контейнер остановится так как это отправляет сигнал прерывания (SIGINT) в основной процесс контейнера (в данном случае это процесс NGINX). Основной процесс контейнера завершает свою работу при получении сигнала SIGINT, что приводит к остановке контейнера.
-* <img src="images/Task_3_2.png" alt="Task_3_2.png" width="700" height="auto">
+   * <img src="images/Task_3_2.png" alt="Task_3_2.png" width="450" height="auto">
 2. Перезапустил контейнер: ```docker start custom-nginx-t2```
 3. Зашёл в оболочку bsh контейнера custom-nginx-t2: ```docker exec -it custom-nginx-t2 bash```. Но установить nano не удалось
-   * <img src="images/Task_3_3.png" alt="Task_3_3.png" width="700" height="auto">
+   * <img src="images/Task_3_3.png" alt="Task_3_3.png" width="450" height="auto">
    Воспользовался услугами VSCode
    * <img src="images/Task_3_4.png" alt="Task_3_4.png" width="500" height="auto">
 4. После перезапуска сервиса страница index.html стала доступна только по порту 81
