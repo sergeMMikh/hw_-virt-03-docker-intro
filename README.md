@@ -164,4 +164,17 @@ services:
 2. Для включения docker-compose.yaml в проект я воспользовался опцией:
 ```include:  - docker-compose.yaml```
    * <img src="images/Task_5_2.png" alt="Task_5_2.png" width="700" height="auto">
+3. В соответствии с рекомендациями задания задеплоил компоуз *compose-custom-nginx*
+   * <img src="images/Task_5_3.png" alt="Task_5_3.png" width="400" height="auto">
+4. Cкриншот от поля "AppArmorProfile" до "Driver" d "inspect" d представлении <> Tree
+   * <img src="images/Task_5_4.png" alt="Task_5_4.png" width="400" height="auto">
+5. Удалаять *compose.yaml* я не стал, достаточно было просто переименовать в *compose_.yaml* что бы получить искомое предупреждение
+   ```WARN[0000] Found orphan containers ([task5-portainer-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.```
+   что можно в вольном переводе жвучит как "найдены сиротские контейнеры". 
+   * <img src="images/Task_5_5.png" alt="Task_5_5.png" width="700" height="auto">
+6. Выполнил предложенный запуск с флагом *--remove-orphans*. В результате оталось единственное предупреждение, касабщееся отсуттсвия необходимости использования версии компоуза в его текущей реализации.
+   * <img src="images/Task_5_6.png" alt="Task_5_6.png" width="700" height="auto">
+7. Команды ```docker compose down``` достаточно что бы погасить запущенный компоуз.
+   * <img src="images/Task_5_7.png" alt="Task_5_7.png" width="700" height="auto">
+   
    
