@@ -101,7 +101,7 @@ Hey, Netology
    * <img src="images/Task_4_2.png" alt="Task_4_2.png" width="700" height="auto">
 3. Подключился к первому контейнеру с помощью ```docker exec``` и создайте текстовый файл любого содержания в ```/data```:
    ```docker exec -it centos-container bash -c "echo 'Hello from CentOS' > /data/centos-file.txt"```
-4. Добавbk файл в текущий каталог ```$(pwd)``` на хостовой машине ```echo 'Hello from Host' > $(pwd)/host-file.txt```
+4. Добавил файл в текущий каталог ```$(pwd)``` на хостовой машине ```echo 'Hello from Host' > $(pwd)/host-file.txt```
 5. Листинг и содержание файлов в ```/data``` Второго контейнера.
    ```docker exec -it debian-container bash -c "ls -l /data && cat /data/centos-file.txt && cat /data/host-file.txt"```
    * <img src="images/Task_4_3.png" alt="Task_4_3.png" width="700" height="auto">
